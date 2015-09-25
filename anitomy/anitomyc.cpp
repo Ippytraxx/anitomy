@@ -14,6 +14,12 @@ anitomy_new()
     return reinterpret_cast<Anitomy*>(new anitomy::Anitomy());
 }
 
+void
+anitomy_free(Anitomy* self)
+{
+    delete reinterpret_cast<anitomy::Anitomy*>(self);
+}
+
 int 
 anitomy_parse(Anitomy* self, const char* filename)
 {
@@ -24,6 +30,12 @@ AnitomyElements*
 anitomy_elements(Anitomy* self)
 {
     return reinterpret_cast<AnitomyElements*>(&reinterpret_cast<anitomy::Anitomy*>(self)->elements());
+}
+
+void
+anitomy_elements_free(AnitomyElements* self)
+{
+    delete reinterpret_cast<anitomy::Elements*>(self);
 }
 
 char*

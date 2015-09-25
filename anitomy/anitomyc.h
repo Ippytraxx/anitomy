@@ -34,8 +34,10 @@ typedef struct Anitomy Anitomy;
 typedef struct AnitomyElements AnitomyElements;
 
 Anitomy* anitomy_new();
+void anitomy_free(Anitomy* self);
 int anitomy_parse(Anitomy* self, const char* filename); 
 AnitomyElements* anitomy_elements(Anitomy* self);
+void anitomy_elements_free(AnitomyElements* self);
 char* anitomy_elements_get(AnitomyElements* self, AnitomyElementCategory category);
 
 #endif
