@@ -57,7 +57,7 @@ START_TEST(test_anitomy_elements_get_all)
 
     elements = anitomy_elements(anitomy);
     
-    names = anitomy_elements_get_all(elements, AnitomyElementAudioTerm);
+    names = anitomy_elements_get_all(elements, ANITOMY_ELEMENT_AUDIO_TERM);
 
     ck_assert_str_eq(names[0], "AAC");
     ck_assert_str_eq(names[1], "5.1");
