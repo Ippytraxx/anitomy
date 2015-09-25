@@ -8,6 +8,19 @@ extern "C"
     #include "anitomyc.h"
 }
 
+static char*
+wide_to_narrow(const wchar_t* wide)
+{
+    char* narrow;
+    size_t size;
+
+    size = sizeof(wchar_t)*wcslen(wide);
+    narrow = (char*) malloc(size);
+    wcstombs(narrow, wide, size);
+
+    return narrow;
+}
+
 Anitomy* 
 anitomy_new() 
 {
@@ -42,13 +55,9 @@ char*
 anitomy_elements_get(AnitomyElements* self, AnitomyElementCategory category)
 {
     char* ret;
-    const wchar_t* fuck;
-    size_t size;
 
-    fuck = reinterpret_cast<anitomy::Elements*>(self)->get(static_cast<anitomy::ElementCategory>(category)).c_str();
-    size = sizeof(wchar_t)*wcslen(fuck);
-    ret = (char*) malloc(size);
-    wcstombs(ret, fuck, size);
+    ret = wide_to_narrow(reinterpret_cast<anitomy::Elements*>(self)->get(static_cast<anitomy::ElementCategory>(category)).c_str());
 
     return ret;
 }
+
