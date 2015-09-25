@@ -48,6 +48,18 @@ START_TEST(test_anitomy_elements)
 }
 END_TEST
 
+START_TEST(test_anitomy_elements_size)
+{
+    AnitomyElements* elements;
+
+    anitomy_parse(anitomy, TEST_FNAME);
+
+    elements = anitomy_elements(anitomy);
+
+    ck_assert_int_eq(anitomy_elements_size(elements), 12);
+}
+END_TEST
+
 START_TEST(test_anitomy_elements_get_all)
 {
     AnitomyElements* elements;
@@ -80,6 +92,7 @@ Suite* anitomy_suite()
     tcase_add_test(core, test_anitomy_new);
     tcase_add_test(core, test_anitomy_parse);
     tcase_add_test(core, test_anitomy_elements);
+    tcase_add_test(core, test_anitomy_elements_size);
     tcase_add_test(core, test_anitomy_elements_get_all);
     suite_add_tcase(s, core);
     suite_add_tcase(s, parser);

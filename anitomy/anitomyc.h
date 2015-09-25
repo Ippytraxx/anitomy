@@ -1,6 +1,8 @@
 #ifndef _ANITOMYC_H
 #define _ANITOMYC_H
 
+#include <stddef.h>
+
 typedef enum
 {
   ANITOMY_ELEMENT_ITERATE_FIRST,
@@ -33,11 +35,20 @@ typedef enum
 typedef struct Anitomy Anitomy;
 typedef struct AnitomyElements AnitomyElements;
 
+typedef struct
+{
+    AnitomyElementCategory category;
+    char* value;
+} AnitomyElementPair;
+
 Anitomy* anitomy_new();
+size_t anitomy_elements_size(AnitomyElements* self);
 void anitomy_free(Anitomy* self);
 int anitomy_parse(Anitomy* self, const char* filename); 
 AnitomyElements* anitomy_elements(Anitomy* self);
+AnitomyElementPair* anitomy_elements_at(AnitomyElements* self, size_t pos);
 char* anitomy_elements_get(AnitomyElements* self, AnitomyElementCategory category);
 char** anitomy_elements_get_all(AnitomyElements* self, AnitomyElementCategory category);
+void anitomy_element_pair_free(AnitomyElementPair* self);
 
 #endif

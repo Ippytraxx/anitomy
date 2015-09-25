@@ -46,6 +46,26 @@ anitomy_elements(Anitomy* self)
     return reinterpret_cast<AnitomyElements*>(&reinterpret_cast<anitomy::Anitomy*>(self)->elements());
 }
 
+size_t
+anitomy_elements_size(AnitomyElements* self)
+{
+    return reinterpret_cast<anitomy::Elements*>(self)->size();
+}
+
+AnitomyElementPair* 
+anitomy_elements_at(AnitomyElements* self, size_t pos)
+{
+    AnitomyElementPair* ret;
+    anitomy::element_pair_t& pair = reinterpret_cast<anitomy::Elements*>(self)->at(pos);
+
+    ret = (AnitomyElementPair*) malloc(sizeof(AnitomyElementPair));
+
+    ret->category = static_cast<AnitomyElementCategory>(pair.first);
+    ret->value = wide_to_narrow(pair.second.c_str());
+
+    return ret;
+}
+
 char*
 anitomy_elements_get(AnitomyElements* self, AnitomyElementCategory category)
 {
@@ -76,4 +96,11 @@ anitomy_elements_get_all(AnitomyElements* self, AnitomyElementCategory category)
     ret[i] = NULL;
 
     return ret;
+}
+
+void 
+anitomy_element_pair_free(AnitomyElementPair* self)
+{
+    free(self->value);
+    free(self);
 }
