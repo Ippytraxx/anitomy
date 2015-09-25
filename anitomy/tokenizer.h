@@ -21,7 +21,7 @@
 
 #include "element.h"
 #include "options.h"
-#include "string.h"
+#include "astring.h"
 #include "token.h"
 
 namespace anitomy {

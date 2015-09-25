@@ -19,7 +19,7 @@
 #include "anitomy.h"
 #include "keyword.h"
 #include "parser.h"
-#include "string.h"
+#include "astring.h"
 #include "tokenizer.h"
 
 namespace anitomy {

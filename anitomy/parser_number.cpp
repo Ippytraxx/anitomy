@@ -22,7 +22,7 @@
 #include "element.h"
 #include "keyword.h"
 #include "parser.h"
-#include "string.h"
+#include "astring.h"
 
 namespace anitomy {
 

@@ -21,7 +21,7 @@
 
 #include <vector>
 
-#include "string.h"
+#include "astring.h"
 
 namespace anitomy {
 

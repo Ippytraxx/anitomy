@@ -21,7 +21,7 @@
 #include <set>
 
 #include "keyword.h"
-#include "string.h"
+#include "astring.h"
 #include "tokenizer.h"
 
 namespace anitomy {

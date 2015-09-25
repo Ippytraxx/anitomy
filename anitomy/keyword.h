@@ -24,7 +24,7 @@
 #include <vector>
 
 #include "element.h"
-#include "string.h"
+#include "astring.h"
 
 namespace anitomy {
 

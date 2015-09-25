@@ -20,7 +20,7 @@
 #include <cwctype>
 #include <functional>
 
-#include "string.h"
+#include "astring.h"
 
 namespace anitomy {
 
