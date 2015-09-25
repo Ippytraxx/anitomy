@@ -39,10 +39,10 @@ anitomy_parse(Anitomy* self, const char* filename)
     return reinterpret_cast<anitomy::Anitomy*>(self)->Parse(std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(filename)); //Really wish m$ would catch up with the times
 }
 
-AnitomyElements*
+const AnitomyElements*
 anitomy_elements(Anitomy* self)
 {
-    return reinterpret_cast<AnitomyElements*>(&reinterpret_cast<anitomy::Anitomy*>(self)->elements());
+    return reinterpret_cast<const AnitomyElements*>(&reinterpret_cast<anitomy::Anitomy*>(self)->elements());
 }
 
 void
@@ -60,4 +60,3 @@ anitomy_elements_get(AnitomyElements* self, AnitomyElementCategory category)
 
     return ret;
 }
-
