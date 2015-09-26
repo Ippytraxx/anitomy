@@ -1085,10 +1085,6 @@
 		"video_term": "X264"
 	},
 	{
-		"episode_number": "01",
-		"file_name": "Vol.01"
-	},
-	{
 		"anime_title": "Rozen Maiden 3",
 		"anime_type": "PV",
 		"file_checksum": "CA57F300",
@@ -1754,8 +1750,5 @@
 		"id": 29854,
 		"release_group": "AnimeRG",
 		"video_resolution": "720p"
-	},
-	{
-		"file_name": "[Anime"
 	}
 ]
